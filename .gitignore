@@ -1,2 +1,4 @@
 pan.*
-spinbat.*
+*.bat
+*.tmp
+*.trail
