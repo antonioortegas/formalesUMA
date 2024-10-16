@@ -2,3 +2,5 @@ pan.*
 *.bat
 *.tmp
 *.trail
+*.out
+*.sel
