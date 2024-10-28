@@ -88,3 +88,13 @@ ltl p2 {[] (Puerta[0]:abierta -> (Cabina:planta==0))}
 ltl p3 {[] ((Cabina:planta!=0) -> <>(Cabina:planta==0))}
 ltl p4 {<>[](Cabina:planta!=0) -> []<>(Cabina:planta==0)}
 //En clase proponen: ltl p3 {[]<>(Cabina:planta==0)}
+
+//FAIRNESS
+/*
+specify the fairness in the non deterministic process (all states are reached), then the condition that must be met on the right
+idgaf if that statement is actually right, but i guess its good enough for the test
+not like this dumb shit has any real applications
+[]<>(controlador@ocupado0) && []<>(controlador@ocupado1) && []<>(controlador@ocupado2) -> []<>(cabina@p0)
+|------------------------------------------------------------------------------------|    |------------------|
+                                WEAK FAIRNESS                                                 CONDITION
+*/
