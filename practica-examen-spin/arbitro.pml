@@ -40,3 +40,14 @@ proctype arbitro(){
     release?REL;
     goto unlock;
 }
+
+//LTL
+// verificar que no se satisface viveza. ie, hay ejecuciones en los que uno de los dos procesos no entra nunca en SC
+// Para eso, decimos que siempre hay un momento en el futuro en el que p[i] entra en SC
+// no se cumplira, porque puede que uno de los dos procesos no entre nunca en SC, siempre entre el otro
+ltl p1 {[]<> (p[3]@critico)}
+// para arreglarlo, usamos justicia. es decir, podamos de las ejecuciones a comprobar aquellos casos en los que 
+// uno de los dos procesos bloquea al otro infinitamente
+// Por eso usamos "cuando el arbitro saca caras y cruces infinitamente, entonces en algún momento p[i] entra en SC"
+// con esto, estamos haciendo que solo se verifiquen aquellas ejecuciones "justas" en las que ambos procesos entran en SC
+ltl p2 {(([]<>arbitro@lock) && ([]<>arbitro@lock)) -> ([]<> (p[1]@critico))}
