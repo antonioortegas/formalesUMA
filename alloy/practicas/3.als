@@ -66,7 +66,9 @@ fact{
 }
 
 pred show(){
-    #Persona=3 && #Ascensor=3 && #Edificio=2
+    #Persona=3
+    #Ascensor=3
+    #Edificio=2
 }
 
 run show for 5
